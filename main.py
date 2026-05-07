@@ -31,10 +31,9 @@ async def on_ready():
 async def ping(ctx):
     await ctx.send("pong!")
 
-
-@bot.tree.command(name="echo", description="Echoes what you say")
-async def echo(interaction: discord.Interaction, message: str):
-    await interaction.response.send_message(message)
+@bot.command()
+async def echo(ctx, message: str):
+    await ctx.send(message)
 
 
 @bot.tree.command(name="cracked_glass", description="Information about the cracked glass effect", guild=discord.Object(id=GUILD_ID))
