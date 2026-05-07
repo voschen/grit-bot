@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 import os
+import json
 
 
 
@@ -13,12 +14,14 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
+GUILD_ID = os.getenv("GUILD_ID")
 
-
+with open("dictionary.json", "r") as f:
+    concepts = json.load(f)
 
 @bot.event
 async def on_ready():
-    guild = discord.Object(id=1292276502867607642)
+    guild = discord.Object(id=GUILD_ID)
     await bot.tree.sync(guild=guild)
     await bot.tree.sync()
     print(f"Logged in as {bot.user}")
@@ -34,13 +37,16 @@ async def echo(interaction: discord.Interaction, message: str):
     await interaction.response.send_message(message)
 
 
-@bot.tree.command(name="echo", description="Echoes what you say", guild=discord.Object(id=GUILD_ID))
-async def echo(interaction: discord.Interaction, message: str):
+@bot.tree.command(name="cracked_glass", description="Information about the cracked glass effect", guild=discord.Object(id=GUILD_ID))
+async def echo(interaction: discord.Interaction):
+    data = concepts["cracked_glass"]
     embed = discord.Embed(
-        title="Echo",
-        description=message,
+        title=data["title"],
+        description= data["description"],
         color=discord.Color.blue()
     )
+    for field in data["fields"]:
+        embed.add_field(name = field["name"], value=field["value"], inline=False)
     await interaction.response.send_message(embed=embed)
 
 

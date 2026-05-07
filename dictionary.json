@@ -1,0 +1,17 @@
+{
+    "cracked_glass": {
+        "title": "Cracked Glass Effect",
+        "description": "The cracked glass effect occurs when the main ideas are linked indirectly through supporting details, rather than being connected in a direct or explicit way.",
+        "fields": [
+            {"name": "Examples of Cracked Glass in Mindmaps", "value": "[EMPTY]"},
+            {"name": "A Symptom to what?", "value": "Cracked Glass is a symptom of undeveloped yada yada reasoning, it tends to be linked to x y z, check alpha beta gamma, refer to the guide on this by doing /guide_x"}
+        ],
+        "color": "blue"
+    },
+    "another_concept": {
+        "title": "...",
+        "description": "...",
+        "fields": [],
+        "color": "red"
+    }
+}
