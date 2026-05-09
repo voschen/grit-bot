@@ -1,3 +1,3 @@
 - add termi loom video recommendator
 - add roadmaps to fix certain issues (if cracked glass effect -> refer to y roadmap)
-- add help homepage section
+- add help homepage section 
